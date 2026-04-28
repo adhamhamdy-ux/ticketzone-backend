@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events — TicketZone</title>
+    <link rel="stylesheet" href="/css/event.css" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html" class="logo">TICKET<span>ZONE</span></a>
+      <ul class="nav-links">
+        <li><a href="sports.html">Sports</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="" id="myTicketsLink">
+          <button class="nav-cta" onclick="openModal({ name: 'Sign In' })">
+            My Tickets
+          </button>
+        </a>
+        <a href="sign-in.html" id="signInLink">
+          <button class="nav-sign">Sign In</button>
+        </a>
+
+        <!-- Profile Dropdown (Hidden initially) -->
+        <div
+          class="profile-dropdown-container"
+          id="profileDropdownBtn"
+          style="display: none; position: relative;"
+        >
+          <button class="nav-profile" onclick="toggleProfilePopup(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </button>
+          <div class="profile-popup" id="profilePopup">
+            <div class="profile-header">
+              <div class="profile-name">Frontend Team</div>
+              <div class="profile-email">frontend@example.com</div>
+            </div>
+            <div class="profile-menu">
+              <a href="#" class="profile-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                My Tickets
+              </a>
+              <a href="#" class="profile-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Settings
+              </a>
+              <div class="profile-divider"></div>
+              <a href="#" class="profile-item" onclick="signOut(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="fade-up page-hero-tag">Concerts · Festivals · Culture</div>
+      <h1 class="fade-up">EVENTS <span>&</span><br />FESTIVALS</h1>
+      <p class="fade-up">
+        Concerts, festivals, cultural events and more. Every experience worth
+        attending — all in one place.
+      </p>
+      <div class="hero-btns fade-up">
+        <a href="#featured" class="btn-primary">Featured Event</a>
+        <a href="#all-events" class="btn-outline">All Events</a>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-card-num">85<span>+</span></div>
+          <div class="stat-card-label">Events This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">40<span>+</span></div>
+          <div class="stat-card-label">Artists & Performers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">12</div>
+          <div class="stat-card-label">Venues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">30<span>K</span></div>
+          <div class="stat-card-label">Attendees Expected</div>
+        </div>
+      </div>
+
+      <!-- FEATURED -->
+      <div id="featured" class="section-header">
+        <div>
+          <div class="section-title">
+            FEATURED <span class="accent">EVENT</span>
+          </div>
+          <div class="section-sub">Don't miss this one</div>
+        </div>
+      </div>
+      <div class="featured-event" id="featuredEvent"></div>
+
+      <!-- CALENDAR -->
+      <div class="section-header" style="margin-bottom: 20px; margin-top: 60px">
+        <div>
+          <div class="section-title">
+            PICK A <span class="accent">DATE</span>
+          </div>
+          <div class="section-sub">Browse events by date</div>
+        </div>
+      </div>
+      <div class="calendar-strip" id="calStrip"></div>
+
+      <!-- SORTING STRIP -->
+      <div
+        style="
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 40px;
+          margin-bottom: -20px;
+        "
+      >
+        <div
+          class="sort-control"
+          style="display: flex; align-items: center; gap: 12px"
+        >
+          <label
+            style="
+              font-size: 12px;
+              color: var(--muted);
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              font-family: var(--font-mono);
+            "
+            >Sort By</label
+          >
+          <select
+            id="sortEvents"
+            onchange="applySort()"
+            style="
+              background: var(--surface);
+              color: var(--text);
+              border: 1px solid var(--border);
+              padding: 10px 36px 10px 16px;
+              border-radius: 8px;
+              font-family: var(--font-body);
+              font-size: 14px;
+              outline: none;
+              cursor: pointer;
+              appearance: none;
+              background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238899aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E&quot;);
+              background-repeat: no-repeat;
+              background-position: right 12px center;
+            "
+          >
+            <option value="date-asc" style="background: var(--card)">
+              Date (Upcoming)
+            </option>
+            <option value="date-desc" style="background: var(--card)">
+              Date (Latest)
+            </option>
+            <option value="price-asc" style="background: var(--card)">
+              Price (Low to High)
+            </option>
+            <option value="price-desc" style="background: var(--card)">
+              Price (High to Low)
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ALL EVENTS -->
+      <div id="all-events" class="section-header" style="margin-top: 60px">
+        <div>
+          <div class="section-title">
+            ALL <span class="accent">EVENTS</span>
+          </div>
+          <div class="section-sub">Cairo & Alexandria</div>
+        </div>
+        <a href="#" class="view-all">View all →</a>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterEvt('all', this)">
+          All
+        </button>
+        <button class="filter-tab" onclick="filterEvt('concert', this)">
+          🎵 Concerts
+        </button>
+        <button class="filter-tab" onclick="filterEvt('festival', this)">
+          🎪 Festivals
+        </button>
+        <button class="filter-tab" onclick="filterEvt('cultural', this)">
+          🎭 Cultural
+        </button>
+        <button class="filter-tab" onclick="filterEvt('outdoor', this)">
+          🌿 Outdoor
+        </button>
+      </div>
+      <div class="cards-grid" id="eventsGrid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">TICKET<span>ZONE</span></span>
+          <p>
+            Your one-stop platform for booking tickets to sports, entertainment,
+            dining, and unforgettable experiences across Egypt.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="#">Partner With Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Twitter / X">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L2.245 2.25H8.08l4.262 5.633 5.902-5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+              <span>X (Twitter)</span>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+              <span>Facebook</span>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="currentColor"
+              >
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                />
+              </svg>
+              <span>TikTok</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 TicketZone. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+      <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title" id="modalTitle">Book Tickets</div>
+        <div class="modal-subtitle" id="modalSubtitle">
+          Select your ticket type and quantity
+        </div>
+        <div class="ticket-options" id="ticketOptions"></div>
+        <div class="qty-control">
+          <span class="qty-label">Number of Tickets</span>
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <div class="qty-num" id="qtyNum">1</div>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        <div class="payment-section">
+          <div class="payment-title">Payment Method</div>
+          <div class="payment-methods" id="paymentMethods">
+            <label class="pay-method">
+              <input type="radio" name="paymentMethod" value="card" checked />
+              <span>Card</span>
+            </label>
+            <label class="pay-method">
+              <input type="radio" name="paymentMethod" value="vodafone" />
+              <span>Vodafone Cash</span>
+            </label>
+            <label class="pay-method">
+              <input type="radio" name="paymentMethod" value="fawry" />
+              <span>Fawry</span>
+            </label>
+            <label class="pay-method">
+              <input type="radio" name="paymentMethod" value="cash" />
+              <span>Cash</span>
+            </label>
+          </div>
+          <div class="payment-details" id="paymentDetails"></div>
+        </div>
+        <div class="modal-total">
+          <span class="total-label">Total Amount</span>
+          <span class="total-amount" id="totalAmount">EGP 0</span>
+        </div>
+        <button class="book-btn" onclick="confirmBooking()">
+          Confirm Booking →
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const eventsData = [
+        {
+          name: "Marwan pablo - Legacy ",
+          label: "Concert",
+          badgeClass: "badge-gold",
+          date: "MAR 16, 2026",
+          location: "New Alamein,Egypt",
+          img: "https://www.visitalamein.com/uploads/0000/1/2025/07/11/screenshot-2025-07-11-at-83542-pm.png",
+          desc: "The biggest rapers show of the year. 10,000 capacity. Epic production.",
+          price: 250,
+          soldPct: 45,
+          hot: true,
+          type: "concert",
+          tickets: [
+            { type: "General", perks: "Floor standing", price: 250 },
+            { type: "VIP", perks: "Elevated platform + bar", price: 650 },
+          ],
+        },
+        {
+          name: "Abyusf concert",
+          label: "Festival",
+          badgeClass: "badge-green",
+          date: "MAR 18, 2026",
+          location: "ELZamalek, Cairo",
+          img: "https://mir-s3-cdn-cf.behance.net/projects/404/f413bc136857025.Y3JvcCwzMzM1LDI2MDgsMCwzNjM.jpg",
+          desc: "one of the biggest rapers now in Zamalek with a lot of surprise guests.",
+          price: 350,
+          soldPct: 30,
+          hot: false,
+          type: "festival",
+          tickets: [
+            { type: "Day Pass", perks: "One day access", price: 350 },
+            { type: "3-Day", perks: "Full access", price: 850 },
+          ],
+        },
+        {
+          name: "Cairo Jazz Night",
+          label: "Concert",
+          badgeClass: "badge-cyan",
+          date: "MAR 20, 2026",
+          location: "Cairo Jazz Club",
+          img: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&q=80",
+          desc: "An intimate evening of world-class jazz with international artists.",
+          price: 180,
+          soldPct: 70,
+          hot: false,
+          type: "concert",
+          tickets: [
+            { type: "Standard", perks: "General entry", price: 180 },
+            { type: "VIP Table", perks: "Reserved table + drink", price: 450 },
+          ],
+        },
+        {
+          name: "Theatro Arkan",
+          label: "Cultural",
+          badgeClass: "badge-purple",
+          date: "MAR 22, 2026",
+          location: "Theatro Arkan",
+          img: "https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/0ba86a5189686975e97183b1f9676818.jpg",
+          desc: "A celebration of Egyptian art, poetry, and live music.",
+          price: 120,
+          soldPct: 50,
+          hot: false,
+          type: "cultural",
+          tickets: [
+            { type: "Standard", perks: "Main hall seating", price: 120 },
+            { type: "Premium", perks: "Front rows", price: 280 },
+          ],
+        },
+        {
+          name: "Gaming Festival Egypt ",
+          label: "Outdoor",
+          badgeClass: "badge-pink",
+          date: "MAR 25, 2026",
+          location: "Gamming Arena ,   Egypt",
+          img: "https://www.insomniamerch.com/cdn/shop/files/Insomnia-Logo-02-blk.png?height=628&pad_color=fff&v=1680105494&width=1200",
+          desc: "Open-air rave under the stars with international DJs.",
+          price: 600,
+          soldPct: 88,
+          hot: true,
+          type: "outdoor",
+          tickets: [
+            { type: "Entry", perks: "Access + welcome drink", price: 600 },
+            {
+              type: "VIP Cabana",
+              perks: "Private cabana + bottle",
+              price: 3500,
+            },
+          ],
+        },
+        {
+          name: "Shehab in Alexandria",
+          label: "Festival",
+          badgeClass: "badge-green",
+          date: "MAR 28, 2026",
+          location: "Alexandia Stadium , Alexandria",
+          img: "../pic/shehab elsayed.jpg",
+          desc: "Shehab concert in Alexandria for the first time with a lot of surprise guests.",
+          price: 250,
+          soldPct: 20,
+          hot: false,
+          type: "festival",
+          tickets: [
+            { type: "Standard", perks: "General entry", price: 250 },
+            { type: "VIP Beach", perks: "VIP zone + sunbed", price: 800 },
+          ],
+        },
+        {
+          name: "Symphony at the Opera",
+          label: "Cultural",
+          badgeClass: "badge-purple",
+          date: "MAR 17, 2026",
+          location: "Cairo Opera House",
+          img: "https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg?auto=compress&cs=tinysrgb&w=800",
+          desc: "An enchanting evening featuring classic symphonies directed by renowned maestros.",
+          price: 350,
+          soldPct: 65,
+          hot: true,
+          type: "cultural",
+          tickets: [
+            { type: "Balcony", perks: "Upper seating", price: 350 },
+            { type: "Orchestra", perks: "Premium immersive view", price: 750 },
+          ],
+        },
+        {
+          name: "Electronic Lakeside",
+          label: "Outdoor",
+          badgeClass: "badge-pink",
+          date: "MAR 21, 2026",
+          location: "Magic Lake, Fayoum",
+          img: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+          desc: "A sprawling outdoor electronic music festival held by the serene Magic Lake.",
+          price: 450,
+          soldPct: 92,
+          hot: true,
+          type: "outdoor",
+          tickets: [
+            { type: "Early Bird", perks: "General Area", price: 450 },
+            {
+              type: "VIP Camping",
+              perks: "Private Tent + Breakfast",
+              price: 1200,
+            },
+          ],
+        },
+        {
+          name: "Underground Night",
+          label: "Concert",
+          badgeClass: "badge-cyan",
+          date: "MAR 22, 2026",
+          location: "Room Art Space, Garden City",
+          img: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800",
+          desc: "Discover emerging local indie bands in an intimate, underground atmosphere.",
+          price: 150,
+          soldPct: 40,
+          hot: false,
+          type: "concert",
+          tickets: [
+            {
+              type: "General Admission",
+              perks: "Standing + 1 Drink",
+              price: 150,
+            },
+          ],
+        },
+        {
+          name: "Heritage Music Festival",
+          label: "Festival",
+          badgeClass: "badge-green",
+          date: "MAR 26, 2026",
+          location: "Citadel of Saladin, Cairo",
+          img: "https://images.pexels.com/photos/2091383/pexels-photo-2091383.jpeg?auto=compress&cs=tinysrgb&w=800",
+          desc: "A multi-day celebration of traditional Egyptian and Arabic musical heritage.",
+          price: 200,
+          soldPct: 55,
+          hot: false,
+          type: "festival",
+          tickets: [
+            { type: "Day Pass", perks: "Full Day Access", price: 200 },
+            { type: "VIP Fortress", perks: "Prime seating + Tour", price: 600 },
+          ],
+        },
+        {
+          name: "Amr Diab Live in Cairo",
+          label: "Concert",
+          badgeClass: "badge-gold",
+          date: "MAR 25, 2026",
+          location: "Cairo International Stadium",
+          img: "../pic/a3.jpg",
+          desc: "The megastar Amr Diab performs his biggest hits live in an unforgettable night.",
+          price: 500,
+          soldPct: 85,
+          hot: true,
+          type: "concert",
+          tickets: [
+            { type: "Regular", perks: "Field Standing", price: 500 },
+            { type: "VIP", perks: "Front Pit + Lounge Access", price: 1500 },
+          ],
+        },
+        {
+          name: "Tamer Ashour Romantic Night",
+          label: "Concert",
+          badgeClass: "badge-cyan",
+          date: "MAR 28, 2026",
+          location: "Al Manara Arena",
+          img: "../pic/tamer ashour.jpeg",
+          desc: "Experience a night of deep emotions and romantic melodies with Tamer Ashour.",
+          price: 400,
+          soldPct: 60,
+          hot: false,
+          type: "concert",
+          tickets: [
+            { type: "Silver", perks: "Seated", price: 400 },
+            { type: "Gold", perks: "Premium Seating", price: 850 },
+          ],
+        },
+      ];
+
+      /* --- HELPERS --- */
+
+      function esc(obj) {
+        return JSON.stringify(obj).replace(/"/g, "&quot;");
+      }
+
+      function soldBar(pct) {
+        return `<div class="sold-bar-wrap">
+    <div class="sold-bar"><div class="sold-bar-fill" style="width:${pct}%"></div></div>
+    <span class="sold-pct">${pct}% sold</span>
+  </div>`;
+      }
+
+      /* --- RENDER FEATURED --- */
+
+      function renderFeatured(ev) {
+        const el = document.getElementById("featuredEvent");
+        el.innerHTML = `
+    <div class="feat-img"><img src="${ev.img}" alt="${ev.name}"></div>
+    <div class="feat-body">
+      <div class="feat-tag">⭐ Featured Event</div>
+      <div class="feat-title">${ev.name}</div>
+      <div class="feat-desc">${ev.desc}</div>
+      <div class="feat-info">
+        <div class="feat-info-row">📅 ${ev.date}</div>
+        <div class="feat-info-row">📍 ${ev.location}</div>
+        <div class="feat-info-row">🎟️ ${ev.soldPct}% tickets sold</div>
+      </div>
+      <div class="feat-price">EGP ${ev.price} <span>/ person</span></div>
+      <button class="btn-primary" onclick="event.stopPropagation();openModal(${esc(ev)})">Book Now →</button>
+    </div>`;
+        el.onclick = () => openModal(ev);
+      }
+
+      /* --- RENDER CARDS --- */
+
+      function renderCards(list) {
+        document.getElementById("eventsGrid").innerHTML = list
+          .map(
+            (ev) => `
+    <div class="card" onclick="openModal(${esc(ev)})">
+      <div class="card-img">
+        <span class="card-badge ${ev.badgeClass}">${ev.label}</span>
+        ${ev.hot ? '<span class="card-hot">🔥 HOT</span>' : ""}
+        <img src="${ev.img}" alt="${ev.name}" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-date">${ev.date}</span>
+          <span class="card-loc">📍 ${ev.location}</span>
+        </div>
+        <div class="card-name">${ev.name}</div>
+        <div class="card-desc">${ev.desc}</div>
+        ${soldBar(ev.soldPct)}
+        <div class="card-footer">
+          <div>
+            <div class="card-price-from">from</div>
+            <div class="card-price">EGP ${ev.price} <span>/ticket</span></div>
+          </div>
+          <button class="card-btn" onclick="event.stopPropagation();openModal(${esc(ev)})">Get Tickets</button>
+        </div>
+      </div>
+    </div>`,
+          )
+          .join("");
+      }
+
+      /* --- FILTER & SORT --- */
+
+      let currentFilter = "all";
+
+      function filterEvt(type, btn) {
+        if (btn) {
+          document
+            .querySelectorAll(".filter-tab")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        }
+        currentFilter = type;
+        applySort();
+      }
+
+      function applySort() {
+        const sortVal =
+          document.getElementById("sortEvents")?.value || "date-asc";
+        let list =
+          currentFilter === "all"
+            ? [...eventsData]
+            : eventsData.filter((e) => e.type === currentFilter);
+
+        if (currentDateFilter) {
+          list = list.filter((e) => {
+            const d1 = new Date(e.date);
+            return (
+              d1.getDate() === currentDateFilter.getDate() &&
+              d1.getMonth() === currentDateFilter.getMonth()
+            );
+          });
+        }
+
+        list.sort((a, b) => {
+          if (sortVal === "date-asc") {
+            return new Date(a.date) - new Date(b.date);
+          } else if (sortVal === "date-desc") {
+            return new Date(b.date) - new Date(a.date);
+          } else if (sortVal === "price-asc") {
+            return a.price - b.price;
+          } else if (sortVal === "price-desc") {
+            return b.price - a.price;
+          }
+        });
+
+        renderCards(list);
+      }
+
+      /* --- CALENDAR --- */
+
+      let currentDateFilter = null;
+      function buildCalendar() {
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const strip = document.getElementById("calStrip");
+        const hasDot = [0, 2, 5, 9, 13];
+
+        const allEl = document.createElement("div");
+        allEl.className = "cal-day active";
+        allEl.innerHTML = `<div class="cal-day-name" style="color:var(--accent);">ALL</div><div class="cal-day-num" style="font-size: 20px; line-height: 30px;">∞</div>`;
+        allEl.onclick = () => {
+          document
+            .querySelectorAll(".cal-day")
+            .forEach((c) => c.classList.remove("active"));
+          allEl.classList.add("active");
+          currentDateFilter = null;
+          applySort();
+          const filterRow = document.querySelector(".filter-tabs");
+          const gridPos =
+            filterRow.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: gridPos - 100, behavior: "smooth" });
+        };
+        strip.appendChild(allEl);
+
+        for (let i = 0; i < 14; i++) {
+          const d = new Date();
+          d.setDate(d.getDate() + i);
+          const el = document.createElement("div");
+          el.className = "cal-day";
+          el.innerHTML = `<div class="cal-day-name">${days[d.getDay()]}</div>
+      <div class="cal-day-num">${d.getDate()}</div>
+      ${hasDot.includes(i) ? '<div class="cal-day-dot"></div>' : ""}`;
+          el.onclick = () => {
+            document
+              .querySelectorAll(".cal-day")
+              .forEach((c) => c.classList.remove("active"));
+            el.classList.add("active");
+            currentDateFilter = d;
+            applySort();
+            const filterRow = document.querySelector(".filter-tabs");
+            const gridPos =
+              filterRow.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: gridPos - 100, behavior: "smooth" });
+          };
+          strip.appendChild(el);
+        }
+      }
+
+      /* --- MODAL --- */
+
+      // Payment method change listener
+      document
+        .getElementById("paymentMethods")
+        ?.addEventListener("change", (e) => {
+          if (e.target && e.target.name === "paymentMethod")
+            setPaymentDetails(e.target.value);
+        });
+
+      let currentEvent = null;
+      let selectedTicketIdx = 0;
+      let qty = 1;
+      let paymentMethod = "card";
+
+      function setPaymentDetails(method) {
+        paymentMethod = method;
+        const wrap = document.getElementById("paymentDetails");
+        if (!wrap) return;
+        if (method === "card") {
+          wrap.innerHTML = `
+            <div class="field full">
+              <label>Name on card</label>
+              <input type="text" id="cardName" placeholder="Full name">
+            </div>
+            <div class="field full">
+              <label>Card number</label>
+              <input type="text" id="cardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            <div class="field">
+              <label>Expiry</label>
+              <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="field">
+              <label>CVV</label>
+              <input type="text" id="cardCvv" inputmode="numeric" placeholder="123" maxlength="3">
+            </div>
+          `;
+          document
+            .getElementById("cardNumber")
+            ?.addEventListener("input", function (e) {
+              let val = this.value.replace(/\D/g, "");
+              val = val.substring(0, 16);
+              let parts = [];
+              for (let i = 0; i < val.length; i += 4) {
+                parts.push(val.substring(i, i + 4));
+              }
+              this.value = parts.join(" ");
+            });
+          document
+            .getElementById("cardExpiry")
+            ?.addEventListener("input", function (e) {
+              let val = this.value.replace(/\D/g, "");
+              val = val.substring(0, 4);
+              if (val.length >= 3) {
+                this.value = val.substring(0, 2) + "/" + val.substring(2);
+              } else {
+                this.value = val;
+              }
+            });
+          return;
+        }
+        if (method === "vodafone") {
+          wrap.innerHTML = `
+            <div class="field full">
+              <label>Vodafone Cash number</label>
+              <input type="tel" id="vfNumber" placeholder="01xxxxxxxxx" maxlength="11">
+            </div>
+            <div class="payment-note">You will receive a payment request after confirming.</div>
+          `;
+          return;
+        }
+        if (method === "fawry") {
+          wrap.innerHTML = `
+            <div class="field full">
+              <label>Mobile number (for receipt)</label>
+              <input type="tel" id="fawryMobile" placeholder="01xxxxxxxxx" maxlength="11">
+            </div>
+            <div class="payment-note">A Fawry reference code will be generated after confirming.</div>
+          `;
+          return;
+        }
+        wrap.innerHTML = `<div class="payment-note">Pay at the venue before entry. Keep your booking confirmation.</div>`;
+      }
+
+      function openModal(item) {
+        currentEvent = item;
+        selectedTicketIdx = 0;
+        qty = 1;
+        document.getElementById("modalTitle").textContent = item.name;
+        document.getElementById("modalSubtitle").textContent =
+          item.date + " · " + (item.location || "");
+        const opts = document.getElementById("ticketOptions");
+        opts.innerHTML = (item.tickets || [])
+          .map(
+            (t, i) => `
+          <div class="ticket-option ${i === 0 ? "selected" : ""}" onclick="selectTicket(${i})">
+            <div>
+              <div class="ticket-type">${t.type}</div>
+              <div class="ticket-perks">${t.perks}</div>
+            </div>
+            <div class="ticket-right">
+              <div class="ticket-price-tag">EGP ${t.price}</div>
+            </div>
+          </div>
+        `,
+          )
+          .join("");
+        document.getElementById("qtyNum").textContent = qty;
+        updateTotal();
+        const selected = document.querySelector(
+          'input[name="paymentMethod"]:checked',
+        );
+        setPaymentDetails(selected ? selected.value : "card");
+        document.getElementById("modalOverlay").classList.add("open");
+      }
+
+      function selectTicket(idx) {
+        selectedTicketIdx = idx;
+        document.querySelectorAll(".ticket-option").forEach((el, i) => {
+          el.classList.toggle("selected", i === idx);
+        });
+        updateTotal();
+      }
+
+      function changeQty(delta) {
+        qty = Math.max(1, Math.min(10, qty + delta));
+        document.getElementById("qtyNum").textContent = qty;
+        updateTotal();
+      }
+
+      function updateTotal() {
+        if (!currentEvent) return;
+        const price = currentEvent.tickets[selectedTicketIdx].price * qty;
+        document.getElementById("totalAmount").textContent =
+          "EGP " + price.toLocaleString();
+      }
+
+      function closeModal(e) {
+        if (!e || e.target === document.getElementById("modalOverlay")) {
+          document.getElementById("modalOverlay").classList.remove("open");
+        }
+      }
+
+      function confirmBooking() {
+        if (
+          !currentEvent ||
+          !currentEvent.tickets ||
+          !currentEvent.tickets.length
+        ) {
+          alert("This item is not bookable right now.");
+          return;
+        }
+        const t = currentEvent.tickets[selectedTicketIdx];
+        const total = (t.price * qty).toLocaleString();
+
+        // Basic validation check
+        if (paymentMethod === "card") {
+          const cn = document
+            .getElementById("cardNumber")
+            ?.value.replace(/\\s/g, "");
+          if (!cn || cn.length < 15)
+            return alert("Please enter a valid card number.");
+        } else if (paymentMethod === "vodafone") {
+          const vf = document.getElementById("vfNumber")?.value;
+          if (!vf || vf.length < 11)
+            return alert("Please enter a valid Vodafone Cash number.");
+        } else if (paymentMethod === "fawry") {
+          const fw = document.getElementById("fawryMobile")?.value;
+          if (!fw || fw.length < 11)
+            return alert("Please enter a valid mobile number for Fawry.");
+        }
+
+        alert(
+          `✅ Booking Confirmed for ${currentEvent.name}!\\n\\n${t.type} × ${qty}\\nTotal: EGP ${total}\\nPaid via: ${paymentMethod.toUpperCase()}\\n\\nYour e-tickets have been sent to your email.`,
+        );
+        closeModal();
+      }
+
+      /* --- INIT --- */
+      buildCalendar();
+      renderFeatured(eventsData[0]);
+      applySort();
+
+      // Nav: smooth fade-out on navigation
+      document.querySelectorAll(".nav-links a, .logo").forEach((a) => {
+        a.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (!href || href.startsWith("#") || href.startsWith("javascript"))
+            return;
+          e.preventDefault();
+          document.body.style.transition =
+            "opacity 0.22s ease, transform 0.22s ease";
+          document.body.style.opacity = "0";
+          document.body.style.transform = "translateY(-8px)";
+          setTimeout(() => {
+            location.href = href;
+          }, 230);
+        });
+      });
+
+      // Profile and Sign In State Management
+      document.addEventListener("DOMContentLoaded", () => {
+        const isSignedIn = localStorage.getItem("signedIn") === "true";
+        const signInLink = document.getElementById("signInLink");
+        const profileDropdownBtn =
+          document.getElementById("profileDropdownBtn");
+        const myTicketsLink = document.getElementById("myTicketsLink");
+
+        if (isSignedIn) {
+          if (signInLink) signInLink.style.display = "none";
+          if (profileDropdownBtn) profileDropdownBtn.style.display = "block";
+          if (myTicketsLink) {
+            myTicketsLink.href = "#";
+            const btn = myTicketsLink.querySelector("button");
+            btn?.removeAttribute("onclick");
+            if (btn) btn.onclick = () => alert("Redirecting to My Tickets...");
+          }
+        } else {
+          if (signInLink) signInLink.style.display = "block";
+          if (profileDropdownBtn) profileDropdownBtn.style.display = "none";
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+          const popup = document.getElementById("profilePopup");
+          const profileBtn = document.getElementById("profileDropdownBtn");
+          if (
+            popup &&
+            popup.classList.contains("active") &&
+            profileBtn &&
+            !profileBtn.contains(e.target)
+          ) {
+            popup.classList.remove("active");
+          }
+        });
+      });
+
+      function toggleProfilePopup(e) {
+        e.stopPropagation();
+        const popup = document.getElementById("profilePopup");
+        if (popup) popup.classList.toggle("active");
+      }
+
+      function signOut(e) {
+        e.preventDefault();
+        localStorage.removeItem("signedIn");
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
