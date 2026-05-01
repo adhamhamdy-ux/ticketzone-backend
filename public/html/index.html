@@ -485,9 +485,9 @@
           hot: true,
           featured: true,
           tickets: [
-            { type: "General", perks: "Standing section", price: 150 },
-            { type: "Tribune", perks: "Seated, great view", price: 300 },
-            { type: "VIP", perks: "Premium seats + lounge access", price: 750 },
+            { type: "3rd class ", perks: "", price: 150 },
+            { type: "2nd class", perks: "Seated, great view", price: 300 },
+            { type: "1st class VIP", perks: "Premium seats + lounge access", price: 750 },
           ],
         },
         {
@@ -529,23 +529,22 @@
         },
         {
           id: 4,
-          name: "Handball Egypt League Final",
-          category: "handball",
-          badge: "badge-handball",
-          label: "Handball",
-          date: "MAR 21, 2026",
-          location: "Hassan Moustafa Hall, Cairo",
-          img: "https://egyptian-gazette.com/wp-content/uploads/2025/01/Lead-Mail-P155555.webp",
-          desc: "The final showdown of the Egyptian Handball League. Championship glory on the line.",
-          price: 100,
-          currency: "EGP",
-          soldPct: 55,
-          hot: false,
-          featured: false,
-          tickets: [
-            { type: "Standard", perks: "General entry", price: 100 },
-            { type: "VIP", perks: "Premium seating", price: 350 },
-          ],
+         
+        name: 'Handball League Final- Egypt vs Tunisia',
+        label: 'Handball', 
+        badgeClass: 'badge-purple',
+        date: 'MAR 28', 
+        location: 'cairo international stadium',
+        img: 'https://pbs.twimg.com/media/G__xaO7XwAAICmL.jpg',
+        desc: 'Championship glory on the line in the handball season finale.',
+        price: 100, 
+        soldPct: 55, 
+        hot: false, 
+        sport: 'handball',
+        tickets: [
+          { type: 'Standard', perks: 'General entry', price: 100 },
+          { type: 'VIP',      perks: 'Premium seats', price: 350 }
+        ]
         },
         {
           id: 5,
@@ -615,9 +614,9 @@
           hot: true,
           featured: false,
          tickets: [
-            { type: "General", perks: "Standing section", price: 150 },
-            { type: "Tribune", perks: "Seated, great view", price: 300 },
-            { type: "VIP", perks: "Premium seats + lounge access", price: 750 },
+            { type: "3rd class ", perks: "", price: 150 },
+            { type: "2nd class", perks: "Seated, great view", price: 300 },
+            { type: "1st class VIP", perks: "Premium seats + lounge access", price: 750 },
           ],
         },
         {
@@ -648,7 +647,7 @@
           label: "Restaurant",
           date: "MAR - APR 2025",
           location: "Tahrir, Cairo",
-          img: "https://www.hilton.com/im/en/CAIRHTW/4642557/43387.jpg?impolicy=crop&cw=2499&ch=1944&gravity=NorthWest&xposition=46&yposition=0&rw=684&rh=532",
+          img: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80",
           desc: "Celebrate Ramadan with a curated Iftar with open buffet",
           price: 450,
           currency: "EGP",
@@ -656,11 +655,8 @@
           hot: false,
           featured: false,
           tickets: [
-            {
-              type: "Per Person",
-              perks: "5-course Iftar + drinks",
-              price: 450,
-            },
+            { type: "Table for 2", perks: "Classic experience", price: 80 },
+            { type: "Table for 4", perks: "Group table", price: 150 },
           ],
         },
       ];
