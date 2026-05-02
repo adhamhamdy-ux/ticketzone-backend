@@ -76,7 +76,7 @@
       <p class="p line">Or With</p>
 
       <div class="flex-row">
-        <button class="btn google">
+        <button type="button" class="btn google">
           <svg
             version="1.1"
             width="20"
@@ -116,7 +116,7 @@
           </svg>
 
           Sign in with Google</button
-        ><button class="btn apple">
+        ><button type="button" class="btn apple">
           <svg
             version="1.1"
             height="20"
@@ -188,12 +188,33 @@
         document.getElementById('forgotSuccess').style.display = 'block';
       }
 
-      document.getElementById('signInForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Simulate sign in
-        localStorage.setItem('signedIn', 'true');
-        window.location.href = 'index.html';
-      });
+     document.querySelector('.button-submit').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const email = document.querySelector('input[type="text"]').value;
+  const password = document.querySelector('input[type="password"]').value;
+
+  if (!email || !password) {
+    alert('Please enter email and password!');
+    return;
+  }
+
+  fetch('http://localhost:8000/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.token) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('signedIn', 'true');
+      window.location.href = '/public/html/index.html';
+    } else {
+      alert('Wrong email or password!');
+    }
+  });
+});
     </script>
   </body>
 </html>
