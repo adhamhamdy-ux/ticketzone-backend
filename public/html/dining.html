@@ -17,7 +17,7 @@
         <li><a href="about.html">About</a></li>
       </ul>
       <div class="nav-ctas">
-        <a href="" id="myTicketsLink">
+        <a href="my-tickets.html" id="myTicketsLink">
           <button class="nav-cta" onclick="openModal({ name: 'Sign In' })">
             My Tickets
           </button>
@@ -311,15 +311,15 @@
           ],
         },
         {
-          name: "",
-          label: "Egyptian",
+          name: "EL NILO",
+          label: "italian",
           badgeClass: "badge-gold",
           location: "Zamalek, Cairo",
           cuisine: "egyptian",
           rating: 4.7,
           priceLevel: 2,
-          img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80",
-          desc: "Authentic Egyptian cuisine in an atmospheric old Cairo setting. A true culinary journey.",
+          img: "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGUNTCLMKrZ5sfNhjrMjX1-32RkfJc1Xr7nUCQsrv5ZMLmgV417b41L9c3SlwD1A7uC3-bWN7VErTfMFDZ2R92_T_TY_Yxd9u2c24xHb2ALZzLFdnqKIQs0IjbL6r0lG5h2jnEuPB9LQio=s680-w680-h510-rw",
+          desc: "Authentic italian cuisine in an atmospheric old Cairo setting. A true culinary journey.",
           price: 350,
           hot: false,
           slots: ["6:30 PM", "8:00 PM", "8:30 PM"],
@@ -387,18 +387,20 @@
           ],
         },
         {
-          name: "Iftar Experience at Hitlon hotel",
-          label: "Egyptian",
-          badgeClass: "badge-gold",
+         name: "Iftar Experience at Hitlon hotel",
+          category: "restaurant",
+          badge: "badge-food-gold",
+          label: "Restaurant",
+          date: "MAR - APR 2025",
           location: "Tahrir Square, Cairo",
           cuisine: "egyptian",
           rating: 4.9,
           priceLevel: 1,
           img: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80",
-          desc: "Experience a traditional Egyptian Iftar feast at the Hilton. Lavish buffets, live cooking stations, and Nile views.",
+          desc: "Celebrate Ramadan with a curated Iftar with open buffet",
           price:450,
           hot: false,
-          slots: ["12:00 PM", "1:00 PM", "6:00 PM", "7:00 PM"],
+          slots: [ "7:00 PM"],
           tickets: [
             { type: "Table for 2", perks: "Classic experience", price: 80 },
             { type: "Table for 4", perks: "Group table", price: 150 },
