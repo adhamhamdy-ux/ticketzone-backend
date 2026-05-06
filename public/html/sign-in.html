@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="/public/css/sign-in.css" />
+    <link rel="stylesheet" href="/css/sign-in.css" />
     <title>Sign-In</title>
   </head>
   <body>
@@ -11,7 +11,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       </span>
     </a>
-    <form class="form" id="signInForm">
+    <form class="form">
       <div class="flex-column">
         <label>Email </label>
       </div>
@@ -28,7 +28,8 @@
             ></path>
           </g>
         </svg>
-        <input type="text" class="input" placeholder="Enter your Email" />
+<input type="email" id="email" placeholder="Email" />
+     
       </div>
 
       <div class="flex-column">
@@ -48,11 +49,7 @@
             d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"
           ></path>
         </svg>
-        <input
-          type="password"
-          class="input"
-          placeholder="Enter your Password"
-        />
+<input type="password" id="password" placeholder="Password" />
         <svg
           viewBox="0 0 576 512"
           height="1em"
@@ -71,7 +68,7 @@
         </div>
         <span class="span" style="cursor: pointer;" onclick="openForgotModal()">Forgot password?</span>
       </div>
-      <button class="button-submit">Sign In</button>
+      <button  type="submit" class="button-submit">Sign In</button>
       <p class="p">Don't have an account? <a href="sign-up.html"> <span class="span">Sign Up</span></a></p>
       <p class="p line">Or With</p>
 
@@ -165,56 +162,53 @@
       </div>
     </div>
 
-    <!-- Scripts -->
     <script>
-      function openForgotModal() {
-        document.getElementById('forgotOverlay').classList.add('active');
-        document.getElementById('forgotForm').style.display = 'block';
-        document.getElementById('forgotSuccess').style.display = 'none';
-        document.getElementById('forgotForm').reset();
-      }
-
-      function closeForgotModal(e) {
-        if (!e || e.target === document.getElementById('forgotOverlay')) {
-          document.getElementById('forgotOverlay').classList.remove('active');
-        }
-      }
-
-      function submitForgot(e) {
-        e.preventDefault();
-        // Here you would normally place your API call to send the password reset email.
-        // For the UI, we just simulate success:
-        document.getElementById('forgotForm').style.display = 'none';
-        document.getElementById('forgotSuccess').style.display = 'block';
-      }
-
-     document.querySelector('.button-submit').addEventListener('click', function(e) {
-  e.preventDefault();
-
-  const email = document.querySelector('input[type="text"]').value;
-  const password = document.querySelector('input[type="password"]').value;
-
-  if (!email || !password) {
-    alert('Please enter email and password!');
-    return;
+  function openForgotModal() {
+    document.getElementById('forgotOverlay').classList.add('active');
+    document.getElementById('forgotForm').style.display = 'block';
+    document.getElementById('forgotSuccess').style.display = 'none';
+    document.getElementById('forgotForm').reset();
   }
 
-  fetch('http://localhost:8000/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.token) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('signedIn', 'true');
-      window.location.href = '/public/html/index.html';
-    } else {
-      alert('Wrong email or password!');
+  function closeForgotModal(e) {
+    if (!e || e.target === document.getElementById('forgotOverlay')) {
+      document.getElementById('forgotOverlay').classList.remove('active');
     }
+  }
+
+  function submitForgot(e) {
+    e.preventDefault();
+    document.getElementById('forgotForm').style.display = 'none';
+    document.getElementById('forgotSuccess').style.display = 'block';
+  }
+
+  document.querySelector('.form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email    = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (!email || !password) {
+      alert('Please enter email and password!');
+      return;
+    }
+
+    fetch('http://localhost:8000/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('signedIn', 'true');
+        window.location.href = 'http://localhost:8000/html/index.html'; 
+      } else {
+        alert('Wrong email or password!');
+      }
+    });
   });
-});
-    </script>
+</script>
   </body>
 </html>

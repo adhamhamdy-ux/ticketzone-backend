@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign-up</title>
-        <link rel="stylesheet" href="/public/css/sign-up.css" />
+        <link rel="stylesheet" href="/css/sign-up.css" />
     </head>
     <body>
         <a href="index.html" class="back-btn">
@@ -112,7 +112,7 @@
                             if (data.token) {
                                 localStorage.setItem("token", data.token);
                                 localStorage.setItem("signedIn", "true");
-                                window.location.href = "/public/html/index.html";
+                                window.location.href = "public/html/index.html";
                             } else {
                                 alert("Registration failed!");
                             }
