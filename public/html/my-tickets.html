@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Tickets — TicketZone</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href=css/my-tickets.css" />
+    <link rel="stylesheet" href="/css/my-tickets.css" />
   </head>
   <body>
     <nav>
@@ -36,7 +36,6 @@
         </div>
       </div>
 
-      <!-- SIGNED IN STATE -->
       <div id="signedInContent" style="display:none;">
         <div class="page-header">
           <div class="page-tag">// Your Bookings</div>
@@ -44,7 +43,6 @@
           <p class="page-sub" id="ticketCount">Loading your tickets...</p>
         </div>
 
-        <!-- EMPTY TICKETS -->
         <div id="emptyTickets" style="display:none;">
           <div class="empty-state">
             <div class="empty-icon">🎟️</div>
@@ -54,12 +52,10 @@
           </div>
         </div>
 
-        <!-- TICKETS LIST -->
         <div class="tickets-grid" id="ticketsGrid"></div>
       </div>
     </main>
 
-    <!-- CHECKOUT MODAL -->
     <div class="modal-overlay" id="checkoutModal">
       <div class="modal">
         <button class="modal-close" onclick="closeCheckout()">×</button>
@@ -69,12 +65,10 @@
 
     <footer>
       <a href="index.html" class="logo">TICKET<span>ZONE</span></a>
-      <div>© 2025 TicketZone. All rights reserved.</div>
+      
     </footer>
 
     <script>
-      // ─── Sample tickets saved in localStorage (simulating what backend returns) ───
-      // In real app, these come from GET /api/tickets with your token
 
       function getMyTickets() {
         const raw = localStorage.getItem('myTickets');
@@ -89,7 +83,6 @@
         localStorage.setItem('myTickets', JSON.stringify(tickets));
       }
 
-      // ─── RENDER PAGE ────────────────────────────────────────────────────────────
       function renderPage() {
         const isSignedIn = localStorage.getItem('signedIn') === 'true';
 
@@ -156,7 +149,6 @@
         });
       }
 
-      // ─── CHECKOUT / DETAILS MODAL ────────────────────────────────────────────────
       function openCheckout(ticketId) {
         const tickets = getMyTickets();
         const t = tickets.find(x => x.id === ticketId);
@@ -217,13 +209,10 @@
 
       document.getElementById('checkoutModal').addEventListener('click', closeCheckout);
 
-      // ─── EXPOSE saveTicket globally so index.html can call it ────────────────────
       window.saveTicketToMyTickets = saveTicket;
 
-      // ─── INIT ────────────────────────────────────────────────────────────────────
       renderPage();
 
-      // Active nav link
       document.querySelectorAll('.nav-links a').forEach(a => {
         if (a.getAttribute('href') === 'my-tickets.html') a.classList.add('active');
       });
