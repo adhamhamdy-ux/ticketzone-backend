@@ -76,7 +76,7 @@
             </label>
             <button class="submit">Submit</button>
             <p class="signin">
-                Already have an acount ? <a href="sign-in.html">Sign in</a>
+                Already have an account? <a href="sign-in.html">Sign in</a>
             </p>
         </form>
 
@@ -112,7 +112,8 @@
                             if (data.token) {
                                 localStorage.setItem("token", data.token);
                                 localStorage.setItem("signedIn", "true");
-                                window.location.href = "public/html/index.html";
+                                localStorage.setItem('user', JSON.stringify(data.user));
+                                window.location.href = "http://localhost:8000/html/index.html";
                             } else {
                                 alert("Registration failed!");
                             }

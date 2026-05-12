@@ -32,7 +32,6 @@
                     <button class="nav-sign">Sign In</button>
                 </a>
 
-                <!-- Profile Dropdown (Hidden initially) -->
                 <div
                     class="profile-dropdown-container"
                     id="profileDropdownBtn"
@@ -67,7 +66,7 @@
                             </div>
                         </div>
                         <div class="profile-menu">
-                            <a href="#" class="profile-item">
+                            <a href="/html/my-tickets.html" class="profile-item">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="18"
@@ -1117,11 +1116,11 @@
                             document
                                 .getElementById("modalOverlay")
                                 .classList.remove("open");
-                            window.location.href = "/public/html/my-tickets.html";
+                            window.location.href = "/html/my-tickets.html";
                         });
                 } else {
                     alert("Please sign in to book tickets!");
-                    window.location.href = "/public/html/sign-in.html";
+                    window.location.href = "/html/sign-in.html";
                 }
             }
 
@@ -1293,6 +1292,12 @@
                 const myTicketsLink = document.getElementById("myTicketsLink");
 
                 if (isSignedIn) {
+                    const user = JSON.parse(localStorage.getItem('user') || '{}');
+                    const nameEl = document.querySelector('.profile-name');
+                    const emailEl = document.querySelector('.profile-email');
+                    if (nameEl && user.name) nameEl.textContent = user.name;
+                    if (emailEl && user.email) emailEl.textContent = user.email;
+
                     if (signInLink) signInLink.style.display = "none";
                     if (profileDropdownBtn)
                         profileDropdownBtn.style.display = "block";
@@ -1334,11 +1339,23 @@
                 }
             }
 
-            function signOut(e) {
+              function signOut(e) {      
                 e.preventDefault();
-                localStorage.removeItem("signedIn");
+                const token = localStorage.getItem('token');
+
+                if (token) {
+                    fetch('http://localhost:8000/api/logout', {
+                        method: 'POST',
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                }
+
+                localStorage.removeItem('token');
+                localStorage.removeItem('signedIn');
+                localStorage.removeItem('user');
+                localStorage.removeItem('myTickets');
                 window.location.reload();
-            }
+}
         </script>
     </body>
 </html>

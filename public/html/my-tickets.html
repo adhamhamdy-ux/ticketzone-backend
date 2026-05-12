@@ -84,28 +84,42 @@
       }
 
       function renderPage() {
-        const isSignedIn = localStorage.getItem('signedIn') === 'true';
+    const isSignedIn = localStorage.getItem('signedIn') === 'true';
+    const token = localStorage.getItem('token');
 
-        if (!isSignedIn) {
-          document.getElementById('notSignedIn').style.display = 'block';
-          return;
-        }
+    if (!isSignedIn || !token) {
+        document.getElementById('notSignedIn').style.display = 'block';
+        return;
+    }
 
-        document.getElementById('signedInContent').style.display = 'block';
-        document.getElementById('signInLink').style.display = 'none';
+    document.getElementById('signedInContent').style.display = 'block';
+    document.getElementById('signInLink').style.display = 'none';
 
-        const tickets = getMyTickets();
+  
+    fetch('http://localhost:8000/api/tickets', {
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.json())
+    .then(data => {
+        const tickets = data.tickets || [];
         const countEl = document.getElementById('ticketCount');
 
         if (tickets.length === 0) {
-          countEl.textContent = "You have no bookings yet.";
-          document.getElementById('emptyTickets').style.display = 'block';
-          return;
+            countEl.textContent = "You have no bookings yet.";
+            document.getElementById('emptyTickets').style.display = 'block';
+            return;
         }
 
         countEl.textContent = `You have ${tickets.length} booking${tickets.length > 1 ? 's' : ''}.`;
         renderTickets(tickets);
-      }
+    })
+    .catch(() => {
+        
+        const tickets = getMyTickets();
+        renderTickets(tickets);
+    });
+}
+        
 
       function renderTickets(tickets) {
         const grid = document.getElementById('ticketsGrid');
