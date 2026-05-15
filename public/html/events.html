@@ -866,18 +866,28 @@
         const myTicketsLink = document.getElementById("myTicketsLink");
 
         if (isSignedIn) {
-          if (signInLink) signInLink.style.display = "none";
-          if (profileDropdownBtn) profileDropdownBtn.style.display = "block";
-          if (myTicketsLink) {
-            myTicketsLink.href = "#";
-            const btn = myTicketsLink.querySelector("button");
-            btn?.removeAttribute("onclick");
-            if (btn) btn.onclick = () => alert("Redirecting to My Tickets...");
-          }
-        } else {
-          if (signInLink) signInLink.style.display = "block";
-          if (profileDropdownBtn) profileDropdownBtn.style.display = "none";
-        }
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const nameEl = document.querySelector('.profile-name');
+    const emailEl = document.querySelector('.profile-email');
+    if (nameEl && user.name) nameEl.textContent = user.name;
+    if (emailEl && user.email) emailEl.textContent = user.email;
+
+    if (signInLink) signInLink.style.display = "none";
+    if (profileDropdownBtn)
+        profileDropdownBtn.style.display = "block";
+    if (myTicketsLink) {
+        myTicketsLink.href = "/html/my-tickets.html";
+        const btn = myTicketsLink.querySelector("button");
+        btn?.removeAttribute("onclick");
+        if (btn)
+            btn.onclick = () =>
+                 window.location.href = "/html/my-tickets.html";
+    }
+                } else {
+    if (signInLink) signInLink.style.display = "block";
+    if (profileDropdownBtn)
+        profileDropdownBtn.style.display = "none";
+                }
 
         // Close dropdown when clicking outside
         document.addEventListener("click", (e) => {

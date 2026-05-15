@@ -12,7 +12,7 @@ class TicketController extends Controller
         $ticket = Ticket::create([
             'user_id'        => $request->user()->id,
             'event_id'       => $request->event_id,
-            'quantity'       => $request->quantity,
+            'category'       => $request->category,
             'total_price'    => $request->total_price,
             'payment_method' => $request->payment_method,
         ]);

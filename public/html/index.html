@@ -327,7 +327,7 @@
 
         <div class="promo-banner">
             <div class="promo-text">
-                <div class="promo-tag">// Limited Offer — VIP Access</div>
+                <div class="promo-tag"></div>
                 <div class="promo-title">UPGRADE TO<br />PREMIUM</div>
                 <div class="promo-desc">
                     Get early access to sold-out events, exclusive VIP seats,
@@ -1275,13 +1275,12 @@
                     if (profileDropdownBtn)
                         profileDropdownBtn.style.display = "block";
                     if (myTicketsLink) {
-                        myTicketsLink.href = "#";
+                        myTicketsLink.href = "/html/my-tickets.html";
                         const btn = myTicketsLink.querySelector("button");
                         btn?.removeAttribute("onclick");
                         if (btn)
                             btn.onclick = () =>
-                                alert("Redirecting to My Tickets...");
-                        window.location.href = "my-tickets.html";
+                                 window.location.href = "/html/my-tickets.html";
                     }
                 } else {
                     if (signInLink) signInLink.style.display = "block";

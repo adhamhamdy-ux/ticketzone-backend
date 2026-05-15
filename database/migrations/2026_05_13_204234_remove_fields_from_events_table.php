@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('events', function (Blueprint $table) {
-        $table->dropColumn(['sold_pct', 'hot', 'featured']);
+        $table->dropColumn([ 'hot', 'featured']);
         });
     }
 
@@ -22,7 +22,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('events', function (Blueprint $table) {
-$table->integer('sold_pct')->default(0);
         $table->boolean('hot')->default(0);
         $table->boolean('featured')->default(0);        });
     }

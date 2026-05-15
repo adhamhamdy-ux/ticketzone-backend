@@ -6,6 +6,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        return "controller sh8al ya 3am 🔥";
+        return "controller sh8al ya 3am ";
     }
 }

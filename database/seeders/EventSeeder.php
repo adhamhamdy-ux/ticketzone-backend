@@ -22,10 +22,7 @@ class EventSeeder extends Seeder
             'price'       => 150,
             'badge'       => 'badge-red',
             'label'       => 'Football',
-            'currency'    => 'EGP',
-            'sold_pct'    => 82,
-            'hot'         => 1,
-            'featured'    => 1,
+            'currency'    => 'EGP',         
             'tickets'     => [
                 ['type' => '3rd Class',      'perks' => '',                              'price' => 150],
                 ['type' => '2nd Class',      'perks' => 'Seated, great view',            'price' => 300],
@@ -44,9 +41,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-purple',
             'label'       => 'Cultural',
             'currency'    => 'EGP',
-            'sold_pct'    => 65,
-            'hot'         => 0,
-            'featured'    => 1,
+           
             'tickets'     => [
                 ['type' => 'Balcony',    'perks' => 'Upper seating',          'price' => 350],
                 ['type' => 'Orchestra',  'perks' => 'Premium immersive view', 'price' => 750],
@@ -64,9 +59,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-purple',
             'label'       => 'Cultural',
             'currency'    => 'EGP',
-            'sold_pct'    => 50,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Standard', 'perks' => 'Main hall seating', 'price' => 120],
                 ['type' => 'Premium',  'perks' => 'Front rows',         'price' => 280],
@@ -84,9 +77,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-blue',
             'label'       => 'Handball',
             'currency'    => 'EGP',
-            'sold_pct'    => 55,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Standard', 'perks' => 'General entry',  'price' => 100],
                 ['type' => 'VIP',      'perks' => 'Premium seats',  'price' => 350],
@@ -104,9 +95,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Restaurant',
             'currency'    => 'EGP',
-            'sold_pct'    => 40,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2', 'perks' => 'Window seat',         'price' => 800],
                 ['type' => 'Table for 4', 'perks' => 'Private area',        'price' => 1500],
@@ -125,9 +114,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-green',
             'label'       => 'Festival',
             'currency'    => 'EGP',
-            'sold_pct'    => 30,
-            'hot'         => 0,
-            'featured'    => 1,
+            
             'tickets'     => [
                 ['type' => 'Wave 1',   'perks' => '',                       'price' => 350],
                 ['type' => 'Wave 2',   'perks' => '',                       'price' => 850],
@@ -146,9 +133,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-red',
             'label'       => 'Football',
             'currency'    => 'EGP',
-            'sold_pct'    => 92,
-            'hot'         => 1,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => '3rd Class',     'perks' => '',                              'price' => 150],
                 ['type' => '2nd Class',     'perks' => 'Seated, great view',            'price' => 300],
@@ -167,9 +152,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-green',
             'label'       => 'Concert',
             'currency'    => 'EGP',
-            'sold_pct'    => 45,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Standard',  'perks' => 'General entry',    'price' => 250],
                 ['type' => 'VIP Beach', 'perks' => 'VIP zone + sunbed', 'price' => 800],
@@ -187,9 +170,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Restaurant',
             'currency'    => 'EGP',
-            'sold_pct'    => 60,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2', 'perks' => 'Classic experience', 'price' => 80],
                 ['type' => 'Table for 4', 'perks' => 'Group table',        'price' => 150],
@@ -209,9 +190,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-red',
             'label'       => 'Football',
             'currency'    => 'EGP',
-            'sold_pct'    => 91,
-            'hot'         => 1,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => '3rd Class',     'perks' => '',                              'price' => 200],
                 ['type' => '2nd Class',     'perks' => 'Seated, great view',            'price' => 400],
@@ -230,9 +209,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-red',
             'label'       => 'Football',
             'currency'    => 'EGP',
-            'sold_pct'    => 40,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => '3rd Class',     'perks' => '',                              'price' => 120],
                 ['type' => '2nd Class',     'perks' => 'Seated, great view',            'price' => 300],
@@ -251,9 +228,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-cyan',
             'label'       => 'Basketball',
             'currency'    => 'EGP',
-            'sold_pct'    => 30,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Standard',  'perks' => 'General seating', 'price' => 80],
                 ['type' => 'Courtside', 'perks' => 'Courtside seats', 'price' => 350],
@@ -273,9 +248,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Steakhouse',
             'currency'    => 'EGP',
-            'sold_pct'    => 35,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2', 'perks' => 'Window seat',         'price' => 800],
                 ['type' => 'Table for 4', 'perks' => 'Private area',        'price' => 1500],
@@ -294,9 +267,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Italian',
             'currency'    => 'EGP',
-            'sold_pct'    => 50,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2', 'perks' => 'Indoor seating',  'price' => 350],
                 ['type' => 'Table for 4', 'perks' => 'Garden seating',  'price' => 650],
@@ -314,9 +285,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Japanese',
             'currency'    => 'EGP',
-            'sold_pct'    => 70,
-            'hot'         => 1,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2', 'perks' => 'Indoor seating', 'price' => 350],
                 ['type' => 'Table for 4', 'perks' => 'Garden seating', 'price' => 650],
@@ -334,9 +303,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Italian',
             'currency'    => 'EGP',
-            'sold_pct'    => 45,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2',   'perks' => 'Standard seating',  'price' => 600],
                 ['type' => 'Terrace Table', 'perks' => 'Nile view terrace', 'price' => 900],
@@ -354,9 +321,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-gold',
             'label'       => 'Seafood',
             'currency'    => 'EGP',
-            'sold_pct'    => 55,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Table for 2', 'perks' => 'Sea view',      'price' => 500],
                 ['type' => 'Table for 4', 'perks' => 'Private booth', 'price' => 1200],
@@ -376,9 +341,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-green',
             'label'       => 'Festival',
             'currency'    => 'EGP',
-            'sold_pct'    => 60,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Wave 1', 'perks' => '',            'price' => 350],
                 ['type' => 'VIP',    'perks' => 'Full access', 'price' => 850],
@@ -396,9 +359,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-green',
             'label'       => 'Concert',
             'currency'    => 'EGP',
-            'sold_pct'    => 40,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Standard',  'perks' => 'General entry',           'price' => 180],
                 ['type' => 'VIP Table', 'perks' => 'Reserved table + drink',  'price' => 450],
@@ -416,9 +377,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-blue',
             'label'       => 'Outdoor',
             'currency'    => 'EGP',
-            'sold_pct'    => 25,
-            'hot'         => 0,
-            'featured'    => 0,
+            
             'tickets'     => [
                 ['type' => 'Entry',      'perks' => 'Access',              'price' => 600],
                 ['type' => 'VIP Access', 'perks' => 'All zones + lounge',  'price' => 3500],
@@ -436,9 +395,7 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-green',
             'label'       => 'Concert',
             'currency'    => 'EGP',
-            'sold_pct'    => 85,
-            'hot'         => 1,
-            'featured'    => 1,
+            
             'tickets'     => [
                 ['type' => 'Regular', 'perks' => 'Field Standing',           'price' => 500],
                 ['type' => 'VIP',     'perks' => 'Front Pit + Lounge Access', 'price' => 1500],
@@ -456,9 +413,6 @@ class EventSeeder extends Seeder
             'badge'       => 'badge-green',
             'label'       => 'Concert',
             'currency'    => 'EGP',
-            'sold_pct'    => 70,
-            'hot'         => 0,
-            'featured'    => 0,
             'tickets'     => [
                 ['type' => 'Silver', 'perks' => 'Seated',            'price' => 400],
                 ['type' => 'Gold',   'perks' => 'Premium Seating',   'price' => 850],
