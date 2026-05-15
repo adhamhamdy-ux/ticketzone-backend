@@ -529,6 +529,7 @@
                         },
                         {
                             type: "1st class VIP",
+
                             perks: "Premium seats + lounge access",
                             price: 750,
                         },
@@ -1279,7 +1280,8 @@
                         btn?.removeAttribute("onclick");
                         if (btn)
                             btn.onclick = () =>
-                                (window.location.href = "my-tickets.html");
+                                alert("Redirecting to My Tickets...");
+                        window.location.href = "my-tickets.html";
                     }
                 } else {
                     if (signInLink) signInLink.style.display = "block";
