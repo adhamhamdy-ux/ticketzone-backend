@@ -330,169 +330,27 @@
     </div>
 
     <script>
-      const eventsData = [
-        {
-          name: "Marwan Pablo & Lege-Cy ",
-          label: "Concert",
-          badgeClass: "badge-gold",
-          date: "AUG 15, 2026",
-          location: "New Alamein,Egypt",
-          img: "https://www.visitalamein.com/uploads/0000/1/2025/07/11/screenshot-2025-07-11-at-83542-pm.png",
-          desc: "Marwan Pablo & Lege-Cy Live at Al Alamein Festival 2026 – August 15 - Alamein Awaits | Visit Alamein | New Alamein",
-          price: 350,
-          soldPct: 30,
-          hot: true,
-          type: "concert",
-           tickets: [
-            { type: "wave 1", perks: "", price: 350 },
-            { type: "wave 2", perks: "", price: 850 },
-            { type: "VIP Pass", perks: "All access + backstage", price: 2000 },
-          ],
-        },
-        {
-          name: "Abyusf concert",
-          label: "Festival",
-          badgeClass: "badge-green",
-          date: "MAR 18, 2026",
-          location: "ELZamalek, Cairo",
-          img: "https://mir-s3-cdn-cf.behance.net/projects/404/f413bc136857025.Y3JvcCwzMzM1LDI2MDgsMCwzNjM.jpg",
-          desc: "one of the biggest rapers now in Zamalek with a lot of surprise guests.",
-          price: 350,
-          soldPct: 30,
-          hot: false,
-          type: "festival",
-          tickets: [
-            { type: "wave 1", perks: "", price: 350 },
-            { type: "VIP", perks: "Full access", price: 850 },
-          ],
-        },
-        {
-          name: "Cairo Jazz Night",
-          label: "Concert",
-          badgeClass: "badge-cyan",
-          date: "MAR 20, 2026",
-          location: "Cairo Jazz Club",
-          img: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&q=80",
-          desc: "An intimate evening of world-class jazz with international artists.",
-          price: 180,
-          soldPct: 70,
-          hot: false,
-          type: "concert",
-          tickets: [
-            { type: "Standard", perks: "General entry", price: 180 },
-            { type: "VIP Table", perks: "Reserved table + drink", price: 450 },
-          ],
-        },
-        {
-          name: "Theatro Arkan",
-          label: "Cultural",
-          badgeClass: "badge-purple",
-          date: "MAR 22, 2026",
-          location: "Theatro Arkan",
-          img: "https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/0ba86a5189686975e97183b1f9676818.jpg",
-          desc: "A celebration of Egyptian art, poetry, and live music.",
-          price: 120,
-          soldPct: 50,
-          hot: false,
-          type: "cultural",
-          tickets: [
-            { type: "Standard", perks: "Main hall seating", price: 120 },
-            { type: "Premium", perks: "Front rows", price: 280 },
-          ],
-        },
-        {
-          name: "Gaming Festival Egypt ",
-          label: "Outdoor",
-          badgeClass: "badge-pink",
-          date: "MAR 25, 2026",
-          location: "Gamming Arena ,   Egypt",
-          img: "https://www.insomniamerch.com/cdn/shop/files/Insomnia-Logo-02-blk.png?height=628&pad_color=fff&v=1680105494&width=1200",
-          desc: "Open-air rave under the stars with international DJs.",
-          price: 600,
-          soldPct: 88,
-          hot: true,
-          type: "outdoor",
-          tickets: [
-            { type: "Entry", perks: "Access ", price: 600 },
-            {
-              type: "VIP Cabana",
-              perks: "3-days access",
-              price: 3500,
-            },
-          ],
-        },
-        {
-          name: "Shehab in Alexandria",
-          label: "Festival",
-          badgeClass: "badge-green",
-          date: "MAR 28, 2026",
-          location: "Alexandia Stadium , Alexandria",
-          img: "../pic/shehab elsayed.jpg",
-          desc: "Shehab concert in Alexandria for the first time with a lot of surprise guests.",
-          price: 250,
-          soldPct: 20,
-          hot: false,
-          type: "festival",
-          tickets: [
-            { type: "Standard", perks: "General entry", price: 250 },
-            { type: "VIP Beach", perks: "VIP zone + sunbed", price: 800 },
-          ],
-        },
-        {
-          name: "Symphony at the Opera",
-          label: "Cultural",
-          badgeClass: "badge-purple",
-          date: "MAR 17, 2026",
-          location: "Cairo Opera House",
-          img: "https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg?auto=compress&cs=tinysrgb&w=800",
-          desc: "A hilarious night with Egypt's top stand-up comedians. Laughs guaranteed.",
-          price: 350,
-          soldPct: 65,
-          currency: "EGP",
-          hot: false,
-          type: "cultural",
-          tickets: [
-            { type: "Balcony", perks: "Upper seating", price: 350 },
-            { type: "Orchestra", perks: "Premium immersive view", price: 750 },
-          ],
-        },
-        {
-          name: "Amr Diab Live in Cairo",
-          label: "Concert",
-          badgeClass: "badge-gold",
-          date: "MAR 25, 2026",
-          location: "Cairo International Stadium",
-          img: "../pic/a3.jpg",
-          desc: "The megastar Amr Diab performs his biggest hits live in an unforgettable night.",
-          price: 500,
-          soldPct: 85,
-          hot: true,
-          type: "concert",
-          tickets: [
-            { type: "Regular", perks: "Field Standing", price: 500 },
-            { type: "VIP", perks: "Front Pit + Lounge Access", price: 1500 },
-          ],
-        },
-        {
-          name: "Tamer Ashour Romantic Night",
-          label: "Concert",
-          badgeClass: "badge-cyan",
-          date: "MAR 28, 2026",
-          location: "Al Manara Arena",
-          img: "../pic/tamer ashour.jpeg",
-          desc: "Experience a night of deep emotions and romantic melodies with Tamer Ashour.",
-          price: 400,
-          soldPct: 60,
-          hot: false,
-          type: "concert",
-          tickets: [
-            { type: "Silver", perks: "Seated", price: 400 },
-            { type: "Gold", perks: "Premium Seating", price: 850 },
-          ],
-        },
-      ];
+     let eventsData = [];
 
-      /* --- HELPERS --- */
+     function mapEvent(e) {
+  return {
+    id:       e.id,
+    name:     e.name,
+    category: e.category,
+    badge:    e.badge || 'badge-event',
+    label:    e.label || e.category,
+    date:     e.date,
+    location: e.location,
+    img:      e.image,
+    desc:     e.description,
+    price:    e.price,
+    currency: e.currency || 'EGP',
+    soldPct:  e.soldPct || 0,
+    hot:      e.hot || false,
+    tickets:  e.tickets || [],
+  };
+}
+
 
       function esc(obj) {
         return JSON.stringify(obj).replace(/"/g, "&quot;");
@@ -545,7 +403,6 @@
         </div>
         <div class="card-name">${ev.name}</div>
         <div class="card-desc">${ev.desc}</div>
-        ${soldBar(ev.soldPct)}
         <div class="card-footer">
           <div>
             <div class="card-price-from">from</div>
@@ -835,12 +692,20 @@
         closeModal();
       }
 
-      /* --- INIT --- */
       buildCalendar();
-      renderFeatured(eventsData[0]);
-      applySort();
 
-      // Nav: smooth fade-out on navigation
+            fetch('http://localhost:8000/api/events')
+        .then(res => res.json())
+        .then(data => {
+          eventsData = data.events
+            .filter(e => ['concert', 'cultural'].includes(e.category))
+            .map(mapEvent);
+
+          renderFeatured(eventsData[0]);
+          applySort();
+        })
+        .catch(() => console.log('API unavailable'));
+          
       document.querySelectorAll(".nav-links a, .logo").forEach((a) => {
         a.addEventListener("click", function (e) {
           const href = this.getAttribute("href");

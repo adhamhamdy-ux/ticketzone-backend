@@ -256,15 +256,17 @@
     })
     .then(res => res.json())
     .then(data => {
-        const tickets = data.tickets || [];
+        const apiTickets = data.tickets || [];
+        const localTickets = getMyTickets();
+ 
+        const tickets = localTickets.length > 0 ? localTickets : apiTickets;
         const countEl = document.getElementById('ticketCount');
-
+ 
         if (tickets.length === 0) {
             countEl.textContent = "You have no bookings yet.";
             document.getElementById('emptyTickets').style.display = 'block';
             return;
         }
-
         countEl.textContent = `You have ${tickets.length} booking${tickets.length > 1 ? 's' : ''}.`;
         renderTickets(tickets);
     })
@@ -280,7 +282,20 @@
         const grid = document.getElementById('ticketsGrid');
         grid.innerHTML = '';
 
-        tickets.forEach(t => {
+        tickets.forEach((t, index) => {
+
+           const eventName     = t.eventName     || t.name           || 'Event';
+          const label         = t.label         || t.category       || 'Event';
+          const date          = t.date          || '—';
+          const location      = t.location      || '—';
+          const img           = t.img           || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80';
+          const ticketType    = t.ticketType    || t.ticket_type    || '—';
+          const quantity      = t.quantity      || 1;
+          const total         = t.total         || t.total_price    || 0;
+          const paymentMethod = t.paymentMethod || t.payment_method || 'Card';
+          const bookedAt      = t.bookedAt      || '—';
+          const ticketId      = t.id            || index;
+
           const card = document.createElement('div');
           card.className = 'ticket-card';
           card.innerHTML = `
@@ -322,6 +337,15 @@
         const tickets = getMyTickets();
         const t = tickets.find(x => x.id === ticketId);
         if (!t) return;
+
+        const eventName     = t.eventName     || t.name         || 'Event';
+        const date          = t.date          || '—';
+        const location      = t.location      || '—';
+        const ticketType    = t.ticketType    || t.ticket_type  || '—';
+        const quantity      = t.quantity      || 1;
+        const paymentMethod = t.paymentMethod || t.payment_method || 'Card';
+        const bookedAt      = t.bookedAt      || '—';
+        const total         = t.total         || t.total_price  || 0;
 
         document.getElementById('checkoutContent').innerHTML = `
           <div class="modal-tag">// Booking Details</div>

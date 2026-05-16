@@ -84,24 +84,6 @@ class EventSeeder extends Seeder
             ],
         ]);
  
-        Event::create([
-            'name'        => 'Dinner at Nusr-Et',
-            'category'    => 'restaurant',
-            'location'    => 'Citystars, Cairo',
-            'date'        => 'ANY DATE',
-            'image'       => 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=800',
-            'description' => 'Premium dining experience at Nusr-Et steakhouse',
-            'price'       => 800,
-            'badge'       => 'badge-gold',
-            'label'       => 'Restaurant',
-            'currency'    => 'EGP',
-            
-            'tickets'     => [
-                ['type' => 'Table for 2', 'perks' => 'Window seat',         'price' => 800],
-                ['type' => 'Table for 4', 'perks' => 'Private area',        'price' => 1500],
-                ['type' => 'VIP Room',    'perks' => 'Private dining room', 'price' => 4000],
-            ],
-        ]);
  
         Event::create([
             'name'        => 'Marwan Pablo & Lege-Cy',
@@ -127,7 +109,7 @@ class EventSeeder extends Seeder
             'category'    => 'football',
             'location'    => 'Cairo International Stadium',
             'date'        => 'MAR 26, 2026',
-            'image'       => '../pic/ahly-pyramids.jpg',
+            'image'       => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQSrv0dhXxQlQMXGleWBMQ0pKaYD2z3M2wA&s',
             'description' => 'AFCON group stage match',
             'price'       => 150,
             'badge'       => 'badge-red',

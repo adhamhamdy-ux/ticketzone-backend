@@ -279,129 +279,31 @@
       </div>
     </div>
 
-    <!-- ============================================================
-     JS SECTION
-     ============================================================ -->
+    
     <script>
-      /* --- DATA --- */
 
-      const restaurants = [
-        {
-          name: "classic rock",
-          label: "Steakhouse",
-          badgeClass: "badge-red",
-          location: "golden strip mall",
-          cuisine: "steakhouse",
-          rating: 4.9,
-          priceLevel: 4,
-          img: "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80",
-          desc: "Cairo's iconic steakhouse. Premium wagyu, theatrical presentation, and unforgettable flavors.",
-          price: 800,
-          hot: true,
-          slots: ["7:00 PM", "7:30 PM", "9:00 PM"],
-          tickets: [
-            { type: "Table for 2", perks: "Window seat", price: 800 },
-            { type: "Table for 4", perks: "Private area", price: 1500 },
-            { type: "VIP Room", perks: "Private dining room", price: 4000 },
-          ],
-        },
-        {
-          name: "iL NILO",
-          label: "italian",
-          badgeClass: "badge-gold",
-          location: "Zamalek, Cairo",
-          cuisine: "egyptian",
-          rating: 4.7,
-          priceLevel: 2,
-          img: "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGUNTCLMKrZ5sfNhjrMjX1-32RkfJc1Xr7nUCQsrv5ZMLmgV417b41L9c3SlwD1A7uC3-bWN7VErTfMFDZ2R92_T_TY_Yxd9u2c24xHb2ALZzLFdnqKIQs0IjbL6r0lG5h2jnEuPB9LQio=s680-w680-h510-rw",
-          desc: "Authentic italian cuisine in an atmospheric old Cairo setting. A true culinary journey.",
-          price: 350,
-          hot: false,
-          slots: ["6:30 PM", "8:00 PM", "8:30 PM"],
-          tickets: [
-            { type: "Table for 2", perks: "Indoor seating", price: 350 },
-            { type: "Table for 4", perks: "Garden seating", price: 650 },
-          ],
-        },
-        {
-          name: "mori sushi",
-          label: "Japanese",
-          badgeClass: "badge-cyan",
-          location: "Four Seasons Nile Plaza",
-          cuisine: "japanese",
-          rating: 4.8,
-          priceLevel: 4,
-          img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80",
-          desc: "World-famous Japanese fusion by Nobu Matsuhisa. Black cod miso and new-style sashimi.",
-          price: 1200,
-          hot: true,
-          slots: ["7:00 PM", "9:30 PM"],
-          tickets: [
-            { type: "Table for 2", perks: "Indoor seating", price: 350 },
-            { type: "Table for 4", perks: "Garden seating", price: 650 },
-          ],
-        },
-        {
-          name: "sizzler",
-          label: "Italian",
-          badgeClass: "badge-pink",
-          location: "Four Seasons First Residence",
-          cuisine: "italian",
-          rating: 4.6,
-          priceLevel: 3,
-          img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
-          desc: "Authentic Italian flavors with Nile views. Fresh pasta, wood-fired pizzas, and fine wines.",
-          price: 600,
-          hot: false,
-          slots: ["7:00 PM", "7:30 PM", "8:00 PM", "9:00 PM"],
-          tickets: [
-            { type: "Table for 2", perks: "Standard seating", price: 600 },
-            { type: "Terrace Table", perks: "Nile view terrace", price: 900 },
-          ],
-        },
-        {
-          name: "bahr",
-          label: "Seafood",
-          badgeClass: "badge-green",
-          location: "Abu Qir, Alexandria",
-          cuisine: "seafood",
-          rating: 4.7,
-          priceLevel: 3,
-          img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
-          desc: "Fresh-catch seafood right on the Mediterranean coast. Choose your fish, choose your style.",
-          price: 500,
-          hot: false,
-          slots: ["1:00 PM", "2:00 PM", "7:00 PM", "8:00 PM"],
-          tickets: [
-            { type: "Table for 2", perks: "Sea view", price: 500 },
-            {
-              type: "Private Terrace",
-              perks: "Exclusive terrace",
-              price: 1200,
-            },
-          ],
-        },
-        {
-         name: "Iftar Experience at Hitlon hotel",
-          category: "restaurant",
-          badge: "badge-food-gold",
-          label: "Restaurant",
-          date: "MAR - APR 2025",
-          location: "Tahrir Square, Cairo",
-          cuisine: "egyptian",
-          rating: 4.9,
-          priceLevel: 1,
-          img: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80",
-          desc: "Celebrate Ramadan with a curated Iftar with open buffet",
-          price:450,
-          hot: false,
-          slots: [ "7:00 PM"],
-          tickets: [
-            { type: "Table for 2", perks: "Classic experience", price: 80 },
-            { type: "Table for 4", perks: "Group table", price: 150 },
-          ],
-        },
-      ];
+      let restaurants = [];
+
+  function mapEvent(e) {
+    return {
+      id:       e.id,
+      name:     e.name,
+      category: e.category,
+      badge:    e.badge || 'badge-dining',
+      label:    e.label || e.category,
+      date:     e.date,
+      location: e.location,
+      img:      e.image,
+      desc:     e.description,
+      price:    e.price,
+      currency: e.currency || 'EGP',
+      soldPct:  e.soldPct || 0,
+      hot:      e.hot || false,
+      tickets:  e.tickets || [],
+      slots:    e.tickets ? e.tickets.map(t => t.type) : [],    };
+      }
+
+
 
 
       function esc(obj) {
@@ -427,8 +329,7 @@
       <div class="card-body">
         <div class="card-name">${r.name}</div>
         <div class="card-meta-row">
-          <span class="stars">${"★".repeat(Math.floor(r.rating))}${"☆".repeat(5 - Math.floor(r.rating))}</span>
-          <span style="color:var(--text)">${r.rating}</span>
+          
           <span>📍 ${r.location}</span>
           <span class="price-range">${priceSymbols(r.priceLevel)}</span>
         </div>
@@ -643,8 +544,18 @@
         closeModal();
       }
 
-      /* --- INIT --- */
-      renderRestaurants(restaurants);
+      fetch('http://localhost:8000/api/events')
+  .then(res => res.json())
+  .then(data => {
+    restaurants = data.events
+      .filter(e => e.category === 'restaurant')
+      .map(mapEvent);
+
+    renderRestaurants(restaurants);
+  })
+  .catch(() => {
+    console.log('API unavailable — no events loaded');
+  });
 
       // Nav: smooth fade-out on navigation
       document.querySelectorAll(".nav-links a, .logo").forEach((a) => {
