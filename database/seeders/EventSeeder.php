@@ -217,7 +217,6 @@ class EventSeeder extends Seeder
             ],
         ]);
  
-        // ─── DINING PAGE ───────────────────────────────────────────────
  
         Event::create([
             'name'        => 'Classic Rock Steakhouse',
