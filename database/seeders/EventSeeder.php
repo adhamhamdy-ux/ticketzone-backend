@@ -309,7 +309,6 @@ class EventSeeder extends Seeder
             ],
         ]);
  
-        // ─── EVENTS PAGE ───────────────────────────────────────────────
  
         Event::create([
             'name'        => 'Abyusf Concert',

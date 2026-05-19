@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-    // Save a new ticket when user books
     public function store(Request $request) {
         $ticket = Ticket::create([
             'user_id'        => $request->user()->id,
@@ -20,7 +19,6 @@ class TicketController extends Controller
         return response()->json(['ticket' => $ticket]);
     }
 
-    // Get all tickets for logged-in user
     public function index(Request $request) {
         $tickets = Ticket::where('user_id', $request->user()->id)->get();
         return response()->json(['tickets' => $tickets]);
